@@ -1,5 +1,7 @@
 # Grid References
 
+**Live site:** https://tkfam151.github.io/Geog/
+
 A one-page study site for KS3 geography: learn, explore and practise 4-figure and 6-figure grid references.
 
 - **Learn**: eastings vs northings, 4-figure and 6-figure references, with diagrams.
