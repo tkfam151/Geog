@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid References</title>
+  <meta name="description" content="Learn, explore and practise 4-figure and 6-figure grid references with an interactive map.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23007aff'/><path d='M11 4v24M21 4v24M4 11h24M4 21h24' stroke='white' stroke-width='2'/></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="currentColor"/><path d="M11 4v24M21 4v24M4 11h24M4 21h24" stroke="var(--bg)" stroke-width="2"/></svg>
+      Grid References
+    </a>
+    <div class="nav-links">
+      <a href="#learn">Learn</a>
+      <a href="#explore">Explore</a>
+      <a href="#practise">Practise</a>
+      <a href="#cheatsheet">Cheat Sheet</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <p class="eyebrow">Geography skills</p>
+  <h1>Grid References.<br><span class="gradient">Made simple.</span></h1>
+  <p class="lede">Find any place on a map in seconds. Learn the rules, explore an interactive map, then test yourself.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#learn">Start learning</a>
+    <a class="btn btn-link" href="#practise">Take the quiz &rsaquo;</a>
+  </div>
+</header>
+
+<!-- LEARN -->
+<section id="learn" class="section">
+  <div class="section-head reveal">
+    <p class="eyebrow">Learn</p>
+    <h2>Three ideas. That's all.</h2>
+  </div>
+
+  <div class="cards">
+    <article class="card reveal">
+      <div class="step">1</div>
+      <h3>Along the corridor, then up the stairs.</h3>
+      <p>Always read the numbers <strong>across the bottom first</strong> (eastings), then the numbers <strong>up the side</strong> (northings).</p>
+      <svg class="diagram" viewBox="0 0 240 180" aria-label="Diagram showing eastings along the bottom and northings up the side">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+        </defs>
+        <g class="d-grid">
+          <path d="M40 20v130M100 20v130M160 20v130M220 20v130M40 30h180M40 90h180M40 150h180"/>
+        </g>
+        <path class="d-arrow-e" d="M40 165H200" marker-end="url(#arrow)"/>
+        <path class="d-arrow-n" d="M25 150V40" marker-end="url(#arrow)"/>
+        <text x="120" y="178" class="d-label e">Eastings → first</text>
+        <text x="14" y="95" class="d-label n" transform="rotate(-90 14 95)">Northings ↑ second</text>
+      </svg>
+    </article>
+
+    <article class="card reveal">
+      <div class="step">2</div>
+      <h3>4-figure: name the square.</h3>
+      <p>Use the <strong>bottom-left corner</strong> of the square. Easting <code>24</code> + northing <code>45</code> gives <span class="ref">2445</span>.</p>
+      <svg class="diagram" viewBox="0 0 240 180" aria-label="Diagram of a 4-figure grid reference">
+        <rect x="80" y="40" width="80" height="80" class="d-square"/>
+        <g class="d-grid">
+          <path d="M80 10v140M160 10v140M50 40h140M50 120h140"/>
+        </g>
+        <circle cx="80" cy="120" r="6" class="d-dot"/>
+        <text x="80" y="168" class="d-num">24</text>
+        <text x="160" y="168" class="d-num">25</text>
+        <text x="36" y="124" class="d-num">45</text>
+        <text x="36" y="44" class="d-num">46</text>
+        <text x="120" y="86" class="d-ref">2445</text>
+      </svg>
+    </article>
+
+    <article class="card reveal">
+      <div class="step">3</div>
+      <h3>6-figure: split into tenths.</h3>
+      <p>Imagine each side cut into 10. Count how many tenths across, then up. <code>24</code>·<code>3</code> and <code>45</code>·<code>7</code> give <span class="ref">243457</span>.</p>
+      <svg class="diagram" viewBox="0 0 240 180" id="tenthsDiagram" aria-label="Diagram of a 6-figure grid reference"></svg>
+    </article>
+  </div>
+
+  <div class="tip reveal">
+    <span class="tip-icon">💡</span>
+    <p><strong>Remember:</strong> "You have to go along the corridor before you can go up the stairs." Eastings first, then northings. Every time.</p>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section id="explore" class="section section-alt">
+  <div class="section-head reveal">
+    <p class="eyebrow">Explore</p>
+    <h2>Point anywhere. Get the reference.</h2>
+    <p class="sub">Move over the map to read live grid references. Tap a feature to see where it is.</p>
+  </div>
+
+  <div class="explore reveal">
+    <div class="map-wrap">
+      <svg id="exploreMap" class="map" viewBox="-60 -20 1080 1080" role="img" aria-label="Interactive grid map"></svg>
+    </div>
+
+    <aside class="panel">
+      <div class="readout">
+        <div>
+          <span class="label">4-figure</span>
+          <span class="big" id="out4">----</span>
+        </div>
+        <div>
+          <span class="label">6-figure</span>
+          <span class="big" id="out6">------</span>
+        </div>
+      </div>
+      <p class="hint" id="featureInfo">Tap a symbol on the map.</p>
+
+      <form id="findForm" class="find" autocomplete="off">
+        <label for="findInput" class="label">Find a reference</label>
+        <div class="find-row">
+          <input id="findInput" inputmode="numeric" placeholder="e.g. 2644 or 267475" maxlength="7">
+          <button class="btn btn-primary btn-sm" type="submit">Find</button>
+        </div>
+        <p class="hint" id="findMsg"></p>
+      </form>
+
+      <div class="legend">
+        <span class="label">Key</span>
+        <ul id="legend"></ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- PRACTISE -->
+<section id="practise" class="section">
+  <div class="section-head reveal">
+    <p class="eyebrow">Practise</p>
+    <h2>Ten questions. How many can you get?</h2>
+  </div>
+
+  <div class="quiz reveal">
+    <div class="map-wrap">
+      <svg id="quizMap" class="map" viewBox="-60 -20 1080 1080" role="img" aria-label="Quiz map"></svg>
+    </div>
+    <div class="panel quiz-panel">
+      <div class="quiz-top">
+        <span class="label" id="qCount">Question 1 of 10</span>
+        <span class="score" id="qScore">Score 0</span>
+      </div>
+      <div class="progress"><div id="qProgress"></div></div>
+      <h3 id="qText">Ready?</h3>
+      <div id="qOptions" class="options"></div>
+      <p class="feedback" id="qFeedback"></p>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" id="qNext">Start quiz</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHEAT SHEET -->
+<section id="cheatsheet" class="section section-alt">
+  <div class="section-head reveal">
+    <p class="eyebrow">Cheat sheet</p>
+    <h2>Everything on one card.</h2>
+  </div>
+  <div class="cheat reveal">
+    <div class="cheat-col">
+      <h4>4-figure</h4>
+      <ol>
+        <li>Find the square.</li>
+        <li>Go to its <strong>bottom-left</strong> corner.</li>
+        <li>Read the easting (along).</li>
+        <li>Read the northing (up).</li>
+        <li>Write them together: <span class="ref">2445</span></li>
+      </ol>
+    </div>
+    <div class="cheat-col">
+      <h4>6-figure</h4>
+      <ol>
+        <li>Start with the 4-figure square.</li>
+        <li>Split the square into 10 × 10.</li>
+        <li>Count tenths across: add after the easting.</li>
+        <li>Count tenths up: add after the northing.</li>
+        <li>Write: <span class="ref">243 457</span></li>
+      </ol>
+    </div>
+    <div class="cheat-col">
+      <h4>Common mistakes</h4>
+      <ul class="x-list">
+        <li>Reading northings first.</li>
+        <li>Using the top-right corner instead of bottom-left.</li>
+        <li>Counting tenths from the wrong side.</li>
+        <li>Forgetting a 4-figure ref is a <em>square</em>, but a 6-figure ref is a <em>point</em> (to 100 m).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Grid References: a free study tool. Map is fictional, for practice only.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
