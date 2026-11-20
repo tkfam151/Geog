@@ -34,6 +34,41 @@
     <a class="btn btn-primary" href="#learn">Start learning</a>
     <a class="btn btn-link" href="#practise">Take the quiz &rsaquo;</a>
   </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <svg viewBox="0 0 640 360" class="hero-map">
+      <defs>
+        <linearGradient id="heroFade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="var(--m-land)"/>
+          <stop offset="1" stop-color="var(--m-land)" stop-opacity=".6"/>
+        </linearGradient>
+      </defs>
+      <rect x="40" y="10" width="580" height="300" rx="18" fill="url(#heroFade)"/>
+      <path class="h-wood" d="M90 60 C 140 30, 220 40, 230 90 C 240 140, 170 160, 120 150 C 80 140, 60 90, 90 60Z"/>
+      <path class="h-river" d="M420 10 C 440 110, 520 190, 560 310"/>
+      <path class="h-road" d="M40 220 C 200 200, 380 250, 620 205"/>
+      <g class="h-grid">
+        <path d="M100 10v300M200 10v300M300 10v300M400 10v300M500 10v300M600 10v300M40 60h580M40 160h580M40 260h580"/>
+      </g>
+      <g class="h-nums">
+        <text x="100" y="340">22</text><text x="200" y="340">23</text><text x="300" y="340">24</text><text x="400" y="340">25</text><text x="500" y="340">26</text><text x="600" y="340">27</text>
+        <text x="22" y="265">44</text><text x="22" y="165">45</text><text x="22" y="65">46</text>
+      </g>
+      <rect class="h-square" x="300" y="60" width="100" height="100"/>
+      <path class="h-along" d="M40 310 H330"/>
+      <path class="h-up" d="M330 310 V90"/>
+      <g class="h-pin" transform="translate(330 90)">
+        <circle r="18" class="h-pulse"/>
+        <circle r="9"/>
+      </g>
+      <g class="h-badge" transform="translate(360 50)">
+        <rect x="0" y="-26" width="150" height="44" rx="22"/>
+        <text x="75" y="4">243 457</text>
+      </g>
+      <text class="h-cap h-cap-1" x="215" y="300">along the corridor →</text>
+      <text class="h-cap h-cap-2" x="342" y="220">up the stairs ↑</text>
+    </svg>
+  </div>
 </header>
 
 <!-- LEARN -->
@@ -86,6 +121,13 @@
       <p>Imagine each side cut into 10. Count how many tenths across, then up. <code>24</code>·<code>3</code> and <code>45</code>·<code>7</code> give <span class="ref">243457</span>.</p>
       <svg class="diagram" viewBox="0 0 240 180" id="tenthsDiagram" aria-label="Diagram of a 6-figure grid reference"></svg>
     </article>
+
+    <article class="card reveal">
+      <div class="step">4</div>
+      <h3>Know your compass.</h3>
+      <p>North is always the top of the map. Remember the order clockwise: <strong>N</strong>ever <strong>E</strong>at <strong>S</strong>oggy <strong>W</strong>affles. In-between points join the two names, like <strong>north-east</strong>.</p>
+      <svg class="diagram" viewBox="0 0 240 180" id="compassDiagram" aria-label="Eight-point compass"></svg>
+    </article>
   </div>
 
   <div class="tip reveal">
@@ -119,6 +161,14 @@
         </div>
       </div>
       <p class="hint" id="featureInfo">Tap a symbol on the map.</p>
+
+      <div class="zoom">
+        <span class="label">Zoom: square split into tenths</span>
+        <div class="zoom-row">
+          <svg id="zoomSvg" viewBox="-40 -14 254 254" aria-label="Zoomed grid square"></svg>
+          <div class="zoom-text" id="zoomText">Point at the map to see how the 6-figure reference is worked out.</div>
+        </div>
+      </div>
 
       <form id="findForm" class="find" autocomplete="off">
         <label for="findInput" class="label">Find a reference</label>
@@ -154,7 +204,13 @@
         <span class="score" id="qScore">Score 0</span>
       </div>
       <div class="progress"><div id="qProgress"></div></div>
-      <h3 id="qText">Ready?</h3>
+      <h3 id="qText">Choose a quiz</h3>
+      <div id="qModes" class="segmented" role="radiogroup" aria-label="Quiz type">
+        <button role="radio" data-mode="four" aria-checked="true">4-figure</button>
+        <button role="radio" data-mode="six" aria-checked="false">6-figure</button>
+        <button role="radio" data-mode="mixed" aria-checked="false">Mixed</button>
+      </div>
+      <p class="hint" id="qModeInfo"></p>
       <div id="qOptions" class="options"></div>
       <p class="feedback" id="qFeedback"></p>
       <div class="quiz-actions">
@@ -202,6 +258,8 @@
     </div>
   </div>
 </section>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
 
 <footer class="footer">
   <p>Grid References: a free study tool. Map is fictional, for practice only.</p>
